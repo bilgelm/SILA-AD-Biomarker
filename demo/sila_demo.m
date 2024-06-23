@@ -9,10 +9,13 @@ addpath(fullfile(path_demo,'..'))
 %% simulate data for the example
 disp('Simulating Data')
 t = simulate_data();
+writetable(t, "simulated_data.csv")
 
 %% train the SILA model
 disp('Training the SILA model using SILA.m')
 [tsila,tdrs] = SILA(t.age,t.val,t.subid,0.25,21,200);
+writetable(tsila, "simulated_data_tsila.csv")
+writetable(tdrs, "simulated_data_tdrs.csv")
 
 % in this demo, we are inputting tall-format age, val, and subid and
 % specifying to use 0.25 year intervals for numeric integration with a
@@ -23,6 +26,7 @@ disp('Training the SILA model using SILA.m')
 %% Estimate time to threshold and age at threshold for each subject
 disp('Generating subject-level estimates with SILA_estimate.m')
 test = SILA_estimate(tsila,t.age,t.val,t.subid);
+writetable(test, "simulated_data_test.csv")
 
 % The estimation function has optional input arguments align_years,
 % extrap_years, and truncate_aget0. These are input as name-value pairs as

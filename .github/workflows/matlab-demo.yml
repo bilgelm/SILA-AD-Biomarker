@@ -24,7 +24,8 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: cd demo; sila_demo
-      - uses: actions/upload-artifact@v4
+      - name: Archive simulation results
+        uses: actions/upload-artifact@v4
         with:
-          name: simulated-data
-          path: demo/simulated_data.csv
+          name: simulated-data-results
+          path: demo/*.csv
