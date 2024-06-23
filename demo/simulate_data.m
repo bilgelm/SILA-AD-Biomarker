@@ -54,3 +54,5 @@ t = table();
 t.subid = [subid_neg_tall;subid_pos_tall];
 t.age = [subage_neg;subage_pos];
 t.val = [subval_neg;subval_pos];
+
+writetable(t, "simulated_data.csv")
