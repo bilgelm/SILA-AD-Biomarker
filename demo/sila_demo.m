@@ -11,6 +11,17 @@ disp('Simulating Data')
 t = simulate_data();
 writetable(t, "simulated_data.csv")
 
+%% For testing purposes, run ILLA without and with smoothing
+disp('Single run of ILLA without smoothing')
+[tilla,tdrs] = ILLA(t.age,t.val,t.subid,0.25,21,0)
+writetable(tilla, "simulated_data_tilla0.csv")
+writetable(tdrs, "simulated_data_tilla0_tdrs.csv")
+
+disp('Single run of ILLA with size 200 smoothing kernel')
+[tilla,tdrs] = ILLA(t.age,t.val,t.subid,0.25,21,200)
+writetable(tilla, "simulated_data_tilla200.csv")
+writetable(tdrs, "simulated_data_tilla200_tdrs.csv")
+
 %% train the SILA model
 disp('Training the SILA model using SILA.m')
 [tsila,tdrs] = SILA(t.age,t.val,t.subid,0.25,21,200);
