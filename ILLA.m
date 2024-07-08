@@ -1,4 +1,4 @@
-function [tout,tdrs] = ILLA(age,value,subid,dt,val0,maxi,skern)
+function [tout,tdrs,t,tmod] = ILLA(age,value,subid,dt,val0,maxi,skern)
 %
 % tout = ILLA(age,value,subid,dt,val0,maxi)
 % 

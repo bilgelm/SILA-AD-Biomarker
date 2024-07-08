@@ -13,9 +13,11 @@ writetable(t, "simulated_data.csv")
 
 %% For testing purposes, run ILLA without and with smoothing
 disp('Single run of ILLA without smoothing')
-[tilla,tdrs] = ILLA(t.age,t.val,t.subid,0.25,21,200,0)
+[tilla,tdrs,t_tmp,tmod_tmp] = ILLA(t.age,t.val,t.subid,0.25,21,200,0)
 writetable(tilla, "simulated_data_tilla0.csv")
 writetable(tdrs, "simulated_data_tilla0_tdrs.csv")
+writetable(t_tmp, "simulated_data_tilla0_t.csv")
+writetable(tmod_tmp, "simulated_data_tilla0_tmod.csv")
 
 disp('Single run of ILLA with size 0.5 smoothing kernel')
 [tilla,tdrs] = ILLA(t.age,t.val,t.subid,0.25,21,200,0.5)
